@@ -4,33 +4,30 @@ import Gasto from './Gasto'
 
 const ListadoGastos = ({gastos, setGastoEditar, eliminarGasto, filtro, gastosFiltrados}) => {
 
+  const listaGastos = lGastos => { // Regresa la lista de gastos usando el state de gastos o gastosFiltrados
+
+    return lGastos.map( gasto => (
+      <Gasto 
+        key={gasto.id}
+        gasto={gasto}
+        setGastoEditar={setGastoEditar}
+        eliminarGasto={eliminarGasto}
+      />
+    ));
+  }
+
   return (
     <div className='listado-gastos contenedor'>
       
-      {
-        filtro ? (
+      { filtro ? (
           <> 
             <h2>{gastosFiltrados.length ? 'Gastos' : `No Hay Gastos en la categoria ${firstCapitalize(filtro)}`}</h2>
-            {gastosFiltrados.map( gasto => (
-              <Gasto 
-                key={gasto.id}
-                gasto={gasto}
-                setGastoEditar={setGastoEditar}
-                eliminarGasto={eliminarGasto}
-              />
-            ))}
+            {listaGastos(gastosFiltrados)}
           </>
         ) : ( 
           <>
             <h2>{gastos.length ? 'Gastos' : 'No Hay Gastos aun'}</h2>
-            {gastos.map( gasto => (
-              <Gasto 
-                key={gasto.id}
-                gasto={gasto}
-                setGastoEditar={setGastoEditar}
-                eliminarGasto={eliminarGasto}
-              />
-            ))}
+            {listaGastos(gastos)}
           </>
         )
       }
