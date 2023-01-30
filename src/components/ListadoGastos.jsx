@@ -6,14 +6,14 @@ const ListadoGastos = ({gastos, setGastoEditar, eliminarGasto, filtro, gastosFil
 
   const listaGastos = lGastos => { // Regresa la lista de gastos usando el state de gastos o gastosFiltrados
 
-    return lGastos.map( gasto => (
+    return lGastos.map( gasto => 
       <Gasto 
         key={gasto.id}
         gasto={gasto}
         setGastoEditar={setGastoEditar}
         eliminarGasto={eliminarGasto}
       />
-    ));
+    );
   }
 
   return (
@@ -24,7 +24,7 @@ const ListadoGastos = ({gastos, setGastoEditar, eliminarGasto, filtro, gastosFil
             <h2>{gastosFiltrados.length ? 'Gastos' : `No Hay Gastos en la categoria ${firstCapitalize(filtro)}`}</h2>
             {listaGastos(gastosFiltrados)}
           </>
-        ) : ( 
+        ) : (
           <>
             <h2>{gastos.length ? 'Gastos' : 'No Hay Gastos aun'}</h2>
             {listaGastos(gastos)}

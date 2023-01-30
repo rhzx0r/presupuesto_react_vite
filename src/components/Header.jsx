@@ -3,6 +3,7 @@ import ControlPresupuesto from './ControlPresupuesto'
 import NuevoPresupuesto from './NuevoPresupuesto'
 
 const Header = ({presupuesto, setPresupuesto, isValidPresupuesto, setIsValidPresupuesto, gastos, setGastos}) => {
+
   return (
     <header>
       <h1>Planificador de Gastos</h1>
