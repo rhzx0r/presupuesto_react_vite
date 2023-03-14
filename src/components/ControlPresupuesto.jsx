@@ -9,10 +9,9 @@ const ControlPresupuesto = ({gastos, presupuesto, setGastos, setPresupuesto, set
   const [gastado, setGastado] = useState(0);
 
   useEffect(() => {
-    const totalGastado = gastos.reduce((total, gasto) => gasto.cantidad + total, 0)
     
+    const totalGastado = gastos.reduce((total, gasto) => gasto.cantidad + total, 0)
     const totalDisponible = presupuesto - totalGastado;
-
     // Calcular el porcentaje gastado
     const nuevoPorcentaje = (((presupuesto - totalDisponible ) / presupuesto) * 100).toFixed(2);
 
@@ -35,15 +34,16 @@ const ControlPresupuesto = ({gastos, presupuesto, setGastos, setPresupuesto, set
     const resultado = confirm('Deseas reiniciar presupuesto y gastos?');
     if(resultado) {
       setGastos([])
-      setPresupuesto(0)
+      setPresupuesto('')
       setIsValidPresupuesto(false)
     } else {
-      console.log('No xd')
+      console.log('No')
     }
   }
 
   return (
     <div className='contenedor-presupuesto contenedor sombra dos-columnas'>
+
       <div>
         <CircularProgressbar
           styles={buildStyles({
@@ -73,7 +73,6 @@ const ControlPresupuesto = ({gastos, presupuesto, setGastos, setPresupuesto, set
           <span>Gastado: </span> {formatearCantidad(gastado)}
         </p>
       </div>
-      
     </div>
   )
 }
