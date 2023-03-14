@@ -34,10 +34,10 @@ const ControlPresupuesto = ({gastos, presupuesto, setGastos, setPresupuesto, set
     const resultado = confirm('Deseas reiniciar presupuesto y gastos?');
     if(resultado) {
       setGastos([])
-      setPresupuesto(0)
+      setPresupuesto('')
       setIsValidPresupuesto(false)
     } else {
-      console.log('No xd')
+      console.log('No')
     }
   }
 
