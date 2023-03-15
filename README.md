@@ -1,4 +1,4 @@
-# presupuesto_react_vite
+# Presupuesto React con Vite
 
 Proyecto de pagina para calcular presupuesto y gastos usando React con Vite.
 
